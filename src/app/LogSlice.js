@@ -14,6 +14,7 @@ export const logSlice = createSlice({
       },
       logOut: (state) => {
         state.logged = false;
+        state.token = '';
       },
       setToken: (state, action) => {
         state.token = action.payload;

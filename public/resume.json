@@ -1,0 +1,17 @@
+[
+    {
+        "name": "checking",
+        "amount": "2,082.79",
+        "totalTransaction": "8349"
+    },
+    {
+        "name": "savings",
+        "amount": "10,928.42",
+        "totalTransaction": "6712"
+    },
+    {
+        "name": "credit card",
+        "amount": "184.30",
+        "totalTransaction": "8349"
+    }
+]
