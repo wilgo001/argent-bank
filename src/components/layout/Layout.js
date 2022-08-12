@@ -1,13 +1,13 @@
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { Link, Outlet } from 'react-router-dom';
 import { ArgentBankLogo } from '../../img';
 import { logOut } from '../../app/LogSlice';
-import { useFirstNameAndLastName } from '../../app/Services';
+import { useFirstNameAndLastName, useIsLogged } from '../../app/Services';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleUser, faSignOut } from '@fortawesome/free-solid-svg-icons';
 
 const Layout = (props) => {
-    const isLogged = useSelector((state) => state.log.logged);
+    const isLogged = useIsLogged();
     const dispatch = useDispatch();
     const name = useFirstNameAndLastName();
     return(
@@ -16,7 +16,7 @@ const Layout = (props) => {
                 <Link to='/' className='main-nav-logo'>
                     <img src={ArgentBankLogo} alt='Argent Bank Logo' className='main-nav-logo-image'/>
                 </Link>
-                {isLogged 
+                {isLogged() 
                     ? <span>
                         <Link to='/profil' className='main-nav-item'>
                             <FontAwesomeIcon icon={faCircleUser}/>

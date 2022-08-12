@@ -47,7 +47,7 @@ const useFirstNameAndLastName = () => {
                 setData(data.body);
             })
         }
-    })
+    }, [data])
     return data;
 }
 
@@ -84,24 +84,23 @@ const useAccountResume = () =>{
                 setData(data);
             })
         }
-    })
+    }, [data])
     return data;
 
 }
 
 
 const useIsLogged = () => {
-    const navigate = useNavigate();
     const log = useSelector((state) => state.log.logged);
     const token = useSelector((state) => state.log.token);
     const isLogged = () => {
         if(log && token !== '') {
             return true;
         } else {
-            navigate('/login');
+            return false
         }
     }
     return isLogged
 }
 
-export { useLogin, useFirstNameAndLastName, useUpdateName, useAccountResume }
+export { useLogin, useFirstNameAndLastName, useUpdateName, useAccountResume, useIsLogged }
